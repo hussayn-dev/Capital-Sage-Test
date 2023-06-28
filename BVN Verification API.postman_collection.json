@@ -1,0 +1,853 @@
+{
+	"info": {
+		"_postman_id": "4da74de6-a8e0-4c80-b5ad-41b9d3cb1f11",
+		"name": "BVN Verification API",
+		"description": "API endpoints for BVN verification",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "20188916"
+	},
+	"item": [
+		{
+			"name": "Register",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n   \"name\" : \"huususuus\",\n   \"email\" : \"hussaynabdsamad07@gmail.com\",\n   \"password\" : \"12345678\",\n   \"password_confirmation\" : \"12345678\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{base_url}}/api/v1.0/user/register",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"api",
+						"v1.0",
+						"user",
+						"register"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Failed Example",
+					"originalRequest": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n   \"name\" : \"huususuus\",\n   \"email\" : \"hussaynabdsamad07@gmail.com\",\n   \"password\" : \"12345678\",\n   \"password_confirmation\" : \"12345678\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/api/v1.0/user/register",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"v1.0",
+								"user",
+								"register"
+							]
+						}
+					},
+					"status": "Bad Request",
+					"code": 400,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Host",
+							"value": "127.0.0.1:8000"
+						},
+						{
+							"key": "Date",
+							"value": "Wed, 28 Jun 2023 14:12:09 GMT"
+						},
+						{
+							"key": "Date",
+							"value": "Wed, 28 Jun 2023 14:12:09 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "close"
+						},
+						{
+							"key": "X-Powered-By",
+							"value": "PHP/8.2.0"
+						},
+						{
+							"key": "Cache-Control",
+							"value": "no-cache, private"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "X-RateLimit-Limit",
+							"value": "60"
+						},
+						{
+							"key": "X-RateLimit-Remaining",
+							"value": "59"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"code\": 400,\n    \"status\": \"failed\",\n    \"message\": \"Failed\",\n    \"result\": {\n        \"data\": {\n            \"email\": [\n                \"The email address is already registered.\"\n            ]\n        }\n    }\n}"
+				},
+				{
+					"name": "Success Example",
+					"originalRequest": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n   \"name\" : \"huususuus\",\n   \"email\" : \"hussaynabdjsamad07@gmail.com\",\n   \"password\" : \"12345678\",\n   \"password_confirmation\" : \"12345678\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/api/v1.0/user/register",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"v1.0",
+								"user",
+								"register"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Host",
+							"value": "127.0.0.1:8000"
+						},
+						{
+							"key": "Date",
+							"value": "Wed, 28 Jun 2023 14:13:07 GMT"
+						},
+						{
+							"key": "Date",
+							"value": "Wed, 28 Jun 2023 14:13:07 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "close"
+						},
+						{
+							"key": "X-Powered-By",
+							"value": "PHP/8.2.0"
+						},
+						{
+							"key": "Cache-Control",
+							"value": "no-cache, private"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "X-RateLimit-Limit",
+							"value": "60"
+						},
+						{
+							"key": "X-RateLimit-Remaining",
+							"value": "58"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"code\": 201,\n    \"status\": \"success\",\n    \"message\": \"Success, User created and logged in\",\n    \"result\": {\n        \"data\": {\n            \"user\": {\n                \"name\": \"huususuus\",\n                \"email\": \"hussaynabdjsamad07@gmail.com\",\n                \"updated_at\": \"2023-06-28T14:13:06.000000Z\",\n                \"created_at\": \"2023-06-28T14:13:06.000000Z\",\n                \"id\": 5\n            },\n            \"token\": \"5|XlrL5sRusByo6hnNFfNi0BcvBMEAHlN3vd4PnKE2\"\n        }\n    }\n}"
+				}
+			]
+		},
+		{
+			"name": "Login",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n   \"email\" : \"hussaynabdsamad07@gmail.com\",\n   \"password\" : \"12345678\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{base_url}}/api/v1.0/user/login",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"api",
+						"v1.0",
+						"user",
+						"login"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Success Example",
+					"originalRequest": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n   \"email\" : \"hussaynabdsamad07@gmail.com\",\n   \"password\" : \"12345678\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/api/v1.0/user/login",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"v1.0",
+								"user",
+								"login"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Host",
+							"value": "127.0.0.1:8000"
+						},
+						{
+							"key": "Date",
+							"value": "Wed, 28 Jun 2023 14:02:40 GMT"
+						},
+						{
+							"key": "Date",
+							"value": "Wed, 28 Jun 2023 14:02:40 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "close"
+						},
+						{
+							"key": "X-Powered-By",
+							"value": "PHP/8.2.0"
+						},
+						{
+							"key": "Cache-Control",
+							"value": "no-cache, private"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "X-RateLimit-Limit",
+							"value": "60"
+						},
+						{
+							"key": "X-RateLimit-Remaining",
+							"value": "58"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"code\": 200,\n    \"status\": \"success\",\n    \"message\": \"Success logging in\",\n    \"result\": {\n        \"data\": {\n            \"token\": \"4|USVTxjPVkcLzSzK3dpRX0oXddVpvgu6xYZyd8kOn\"\n        }\n    }\n}"
+				},
+				{
+					"name": "Failed Example",
+					"originalRequest": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n   \"email\" : \"hussaynabdsamjad07@gmail.com\",\n   \"password\" : \"12345678\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/api/v1.0/user/login",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"v1.0",
+								"user",
+								"login"
+							]
+						}
+					},
+					"status": "Bad Request",
+					"code": 400,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Host",
+							"value": "127.0.0.1:8000"
+						},
+						{
+							"key": "Date",
+							"value": "Wed, 28 Jun 2023 14:05:17 GMT"
+						},
+						{
+							"key": "Date",
+							"value": "Wed, 28 Jun 2023 14:05:17 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "close"
+						},
+						{
+							"key": "X-Powered-By",
+							"value": "PHP/8.2.0"
+						},
+						{
+							"key": "Cache-Control",
+							"value": "no-cache, private"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "X-RateLimit-Limit",
+							"value": "60"
+						},
+						{
+							"key": "X-RateLimit-Remaining",
+							"value": "59"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"code\": 400,\n    \"status\": \"success\",\n    \"message\": \"Invalid email or password\",\n    \"result\": {\n        \"data\": []\n    }\n}"
+				}
+			]
+		},
+		{
+			"name": "Initiate BVN Verification",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "5|XlrL5sRusByo6hnNFfNi0BcvBMEAHlN3vd4PnKE2",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json"
+					},
+					{
+						"warning": "This is a duplicate header and will be overridden by the Authorization header generated by Postman.",
+						"key": "Authorization",
+						"value": "Bearer {{token}}"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n   \"bvn\" : \"11111111111\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{base_url}}/api/v1.0/user/initiate_bvn",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"api",
+						"v1.0",
+						"user",
+						"initiate_bvn"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Failed Example",
+					"originalRequest": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer {{token}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n   \"bvn\" : \"11111111111\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/api/v1.0/user/initiate_bvn",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"v1.0",
+								"user",
+								"initiate_bvn"
+							]
+						}
+					},
+					"status": "Bad Request",
+					"code": 400,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Host",
+							"value": "127.0.0.1:8000"
+						},
+						{
+							"key": "Date",
+							"value": "Wed, 28 Jun 2023 14:09:39 GMT"
+						},
+						{
+							"key": "Date",
+							"value": "Wed, 28 Jun 2023 14:09:39 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "close"
+						},
+						{
+							"key": "X-Powered-By",
+							"value": "PHP/8.2.0"
+						},
+						{
+							"key": "Cache-Control",
+							"value": "no-cache, private"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "X-RateLimit-Limit",
+							"value": "60"
+						},
+						{
+							"key": "X-RateLimit-Remaining",
+							"value": "59"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"code\": 400,\n    \"status\": \"failed\",\n    \"message\": \"Bvn Has been verified\",\n    \"result\": {\n        \"data\": []\n    }\n}"
+				},
+				{
+					"name": "Success Example",
+					"originalRequest": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json"
+							},
+							{
+								"warning": "This is a duplicate header and will be overridden by the Authorization header generated by Postman.",
+								"key": "Authorization",
+								"value": "Bearer {{token}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n   \"bvn\" : \"11111111111\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/api/v1.0/user/initiate_bvn",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"v1.0",
+								"user",
+								"initiate_bvn"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Host",
+							"value": "127.0.0.1:8000"
+						},
+						{
+							"key": "Date",
+							"value": "Wed, 28 Jun 2023 14:14:40 GMT"
+						},
+						{
+							"key": "Date",
+							"value": "Wed, 28 Jun 2023 14:14:40 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "close"
+						},
+						{
+							"key": "X-Powered-By",
+							"value": "PHP/8.2.0"
+						},
+						{
+							"key": "Cache-Control",
+							"value": "no-cache, private"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "X-RateLimit-Limit",
+							"value": "60"
+						},
+						{
+							"key": "X-RateLimit-Remaining",
+							"value": "59"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"code\": 200,\n    \"status\": \"success\",\n    \"message\": \"Success, An otp has been sent to your mobile number 080xxxxx567\",\n    \"result\": {\n        \"data\": []\n    }\n}"
+				}
+			]
+		},
+		{
+			"name": "Verify BVN with OTP",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json"
+					},
+					{
+						"key": "Authorization",
+						"value": "Bearer {{token}}"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n   \"otp\" : \"555555\"\n}"
+				},
+				"url": {
+					"raw": "{{base_url}}://{{base_url}}/verify_otp",
+					"protocol": "{{base_url}}",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"verify_otp"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Success Example",
+					"originalRequest": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer {{token}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n   \"otp\" : \"555555\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/api/v1.0/user/verify_otp",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"v1.0",
+								"user",
+								"verify_otp"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Host",
+							"value": "127.0.0.1:8000"
+						},
+						{
+							"key": "Date",
+							"value": "Wed, 28 Jun 2023 14:16:21 GMT"
+						},
+						{
+							"key": "Date",
+							"value": "Wed, 28 Jun 2023 14:16:21 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "close"
+						},
+						{
+							"key": "X-Powered-By",
+							"value": "PHP/8.2.0"
+						},
+						{
+							"key": "Cache-Control",
+							"value": "no-cache, private"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "X-RateLimit-Limit",
+							"value": "60"
+						},
+						{
+							"key": "X-RateLimit-Remaining",
+							"value": "59"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"code\": 200,\n    \"status\": \"success\",\n    \"message\": \"Success, Bvn Verified Successfully\",\n    \"result\": {\n        \"data\": []\n    }\n}"
+				},
+				{
+					"name": "Failed Example",
+					"originalRequest": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer {{token}}",
+								"disabled": true
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n   \"otp\" : \"755555\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/api/v1.0/user/verify_otp",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"v1.0",
+								"user",
+								"verify_otp"
+							]
+						}
+					},
+					"status": "Bad Request",
+					"code": 400,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Host",
+							"value": "127.0.0.1:8000"
+						},
+						{
+							"key": "Date",
+							"value": "Wed, 28 Jun 2023 14:17:19 GMT"
+						},
+						{
+							"key": "Date",
+							"value": "Wed, 28 Jun 2023 14:17:19 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "close"
+						},
+						{
+							"key": "X-Powered-By",
+							"value": "PHP/8.2.0"
+						},
+						{
+							"key": "Cache-Control",
+							"value": "no-cache, private"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "X-RateLimit-Limit",
+							"value": "60"
+						},
+						{
+							"key": "X-RateLimit-Remaining",
+							"value": "58"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"code\": 400,\n    \"status\": \"failed\",\n    \"message\": \"Otp does not match\",\n    \"result\": {\n        \"data\": []\n    }\n}"
+				}
+			]
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "base_url",
+			"value": "http://127.0.0.1:8000",
+			"type": "string"
+		},
+		{
+			"key": "token",
+			"value": "5|XlrL5sRusByo6hnNFfNi0BcvBMEAHlN3vd4PnKE2",
+			"type": "string"
+		}
+	]
+}
