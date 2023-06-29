@@ -30,11 +30,10 @@ git clone https://github.com/hussayn-dev/Capital-sage-Test.git
 
 6. Add the following constants to your `.env` file:
 ```
-YOU_VERIFY_BASE_URL = "https://you-verify-api.com"
+YOU_VERIFY_BASE_URL = "https://api.sandbox.youverify.co"
 YOU_VERIFY_APIKEY = "your-you-verify-api-key"
 
 BULK_SMS_NIGERIA_BASE_URL = "https://bulksmsnigeria-api.com"
-
 BULK_SMS_NIGERIA_API_TOKEN = "your-bulksmsnigeria-api-token"
 BULK_SMS_NIGERIA_SENDER_ID = "your-sender-id"
 
@@ -61,7 +60,9 @@ then you can import.
 This project aims to enhance individual security by integrating BVN verification. It incorporates the "You Verify" service, which provides robust BVN verification capabilities. The service has been seamlessly integrated into both the API requests and the web interface.
 
 ## Core Functionality
-The core functionality of the project is centered around BVN registration and verification. The initial implementation only provided a single function for BVN registration, which was considered less secure due to the ability to test for users as long as the "isSubjectConsent" parameter was set to true. To address this limitation, a secure workflow was designed and implemented. This workflow involves sending an OTP (One-Time Password) to the user's mobile number, which is obtained from the You Verify API response. The user is then required to enter the OTP for successful verification. In the test environment, a default OTP (555555) is used, and the logic for generating different OTPs has been commented out.
+The core functionality of the project is centered around BVN registration and verification. The YOU_VERIFY implementation only provided a single function for BVN verification, which I think is less secure due to the ability to verify users as long as the "isSubjectConsent" parameter is set to true. To address this limitation, I devised and implemented a secure workflow. This workflow involves sending an OTP (One-Time Password) to the user's mobile number, which is obtained from the You Verify API response. The user is then required to enter the OTP for successful verification. In the test environment, a default OTP (555555) is used, and the logic for generating different OTPs has been commented out.
+Also, the API-KEY provided for me had an error while testing, so I created a new account 
+for testing, the  api-key is  "d8evGm3W.LjMcEtHubdEY20MFUESe05kc3KB90AKh3vUy", and for testing, I can provide my bulksms Nigeria details.
 
 ## Test Environment
 In the test environment, there are certain limitations that should be noted. The default OTP used for testing is 555555. Additionally, the BVN number used for testing purposes is 11111111111.
@@ -84,7 +85,7 @@ Employed for efficient caching.
 ## Project Timeline
 #### Project Kickoff: Monday afternoon
 #### Email Confirmation Received: Monday morning
-#### Submission: Wednesday Afternoon
+#### Submission: Thursday Morning due to EID
 
 ## Acknowledgments
 I thoroughly enjoyed working on this project, which provided valuable experience in integrating third-party APIs and developing secure systems. It allowed me to explore new technologies and improve my skills in web development.

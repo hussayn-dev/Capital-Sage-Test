@@ -24,3 +24,7 @@ Route::prefix('v1.0/user')->group(function () {
         Route::post('verify_otp', [BvnVerificationController::class, 'verify_otp']);
     });
 });
+
+Route::any('{any}', function () {
+    return failed('Route not found',[], \Symfony\Component\HttpFoundation\Response::HTTP_NOT_FOUND);
+})->where('any', '.*');
