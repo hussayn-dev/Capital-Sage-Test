@@ -1,11 +1,9 @@
 <?php
 
-use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Auth\AuthController;
-use App\Http\Controllers\PageController;
 use App\Http\Controllers\BvnVerificationController;
-
-
+use App\Http\Controllers\PageController;
+use Illuminate\Support\Facades\Route;
 
 /*
 |--------------------------------------------------------------------------
@@ -32,7 +30,7 @@ Route::middleware('auth')->group(function () {
 
     // Dashboard Route
     Route::get('/dashboard', [PageController::class, 'dashboard'])
-                     ->middleware('bvn_verified')->name('dashboard');
+        ->middleware('bvn_verified')->name('dashboard');
 
     // BVN Initiate Routes
     Route::get('/bvn/initiate', [BvnVerificationController::class, 'bvn_initiate'])->name('bvn.initiate');
@@ -41,6 +39,5 @@ Route::middleware('auth')->group(function () {
     // BVN Verify Routes
     Route::get('/bvn/verify', [BvnVerificationController::class, 'bvn_verify'])->name('bvn.verify');
     Route::post('/bvn/verify', [BvnVerificationController::class, 'verify_bvn'])->name('bvn.verify.submit');
-
 
 });

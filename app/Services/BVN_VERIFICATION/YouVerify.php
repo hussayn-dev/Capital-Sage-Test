@@ -2,10 +2,8 @@
 
 namespace App\Services\BVN_VERIFICATION;
 
-
-use App\Services\Traits\YouVerifyTrait;
-
-class YouVerify {
+class YouVerify
+{
     protected mixed $base_url;
     protected array $headers;
     private const BVN_VERIFY = '/v2/api/identity/ng/bvn';
@@ -19,16 +17,12 @@ class YouVerify {
         $this->base_url = config('api_vendors.you_verify.base_url');
     }
 
-    /**
-     * @param $request
-     * @return array
-     */
-    public function bvn_verification ($request) : array
+    public function bvn_verification($request): array
     {
-       $url = $this->base_url . self::BVN_VERIFY;
+        $url = $this->base_url.self::BVN_VERIFY;
         $data = [
-            "id" => $request->bvn,
-             "isSubjectConsent" => true,
+            'id' => $request->bvn,
+            'isSubjectConsent' => true,
         ];
 
         return send_post_request($url, $data, $this->headers);

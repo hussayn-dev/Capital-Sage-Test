@@ -8,6 +8,6 @@ return [
     'bulk_sms_nigeria' => [
         'base_url' => env('BULK_SMS_NIGERIA_BASE_URL'),
         'api_token' => env('BULK_SMS_NIGERIA_API_TOKEN'),
-        'sender_id' => env('BULK_SMS_NIGERIA_SENDER_ID')
-    ]
+        'sender_id' => env('BULK_SMS_NIGERIA_SENDER_ID'),
+    ],
 ];

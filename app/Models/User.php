@@ -21,7 +21,7 @@ class User extends Authenticatable
         'name',
         'email',
         'password',
-        'bvn_verified'
+        'bvn_verified',
     ];
 
     /**
@@ -34,12 +34,11 @@ class User extends Authenticatable
         'remember_token',
     ];
 
-    /**
-     * @return bool
-     */
-    public function bvn_isVerified() :bool {
+    public function bvn_isVerified(): bool
+    {
         return $this->bvn_verified;
     }
+
     /**
      * The attributes that should be cast.
      *

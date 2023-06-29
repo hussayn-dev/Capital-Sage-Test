@@ -3,17 +3,17 @@
 namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
-use App\Http\Controllers\Traits\Bvn_VerificationTrait;
+use App\Http\Controllers\Traits\Bvn_Verification;
 use App\Services\BVN_VERIFICATION\YouVerify;
-use \Illuminate\Http\Request;
 use Illuminate\Http\JsonResponse;
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Validator;
 
-
 class BvnVerificationController extends Controller
 {
-    use Bvn_VerificationTrait;
+    use Bvn_Verification;
+
     protected mixed $you_verify;
 
     public function __construct()
@@ -21,30 +21,33 @@ class BvnVerificationController extends Controller
         $this->you_verify = resolve(YouVerify::class);
     }
 
-    public function initiate_bvn (Request $request) :JsonResponse
+    public function initiate_bvn(Request $request): JsonResponse
     {
         try {
-            $validation = Validator::make($request->all(),
-                $this->bvn_rules(), $this->bvn_messages());
+            $validation = Validator::make(
+                $request->all(),
+                $this->bvn_rules(),
+                $this->bvn_messages()
+            );
 
             if ($validation->fails()) {
-                return failed('Failed' , $validation->errors(), 400);
+                return failed('Failed', $validation->errors(), 400);
             }
 
             $user = Auth::user();
 
-            if($user->bvn_isVerified()) {
+            if ($user->bvn_isVerified()) {
                 return failed('Bvn Has been verified');
             }
-           $response = $this->you_verify->bvn_verification($request);
+            $response = $this->you_verify->bvn_verification($request);
 
-           if(!$response['success']) {
-             return failed('Failed', $response);
-           }
-           $mobile_number =$response['data']['mobile'];
-           $this->performOtpOperation($mobile_number, $user->id);
+            if (! $response['success']) {
+                return failed('Failed', $response);
+            }
+            $mobile_number = $response['data']['mobile'];
+            $this->performOtpOperation($mobile_number, $user->id);
 
-           return success('Success, An otp has been sent to your mobile number '.modify_phone($mobile_number));
+            return success('Success, An otp has been sent to your mobile number '.modify_phone($mobile_number));
         } catch (\Exception $exception) {
             return exceptionResponse($exception);
         }
@@ -53,29 +56,32 @@ class BvnVerificationController extends Controller
     public function verify_otp(Request $request): JsonResponse
     {
         try {
-            $validation = Validator::make($request->all(),
-                      $this->otp_rules(), $this->otp_messages());
+            $validation = Validator::make(
+                $request->all(),
+                $this->otp_rules(),
+                $this->otp_messages()
+            );
 
             if ($validation->fails()) {
-                    return failed('Failed' , $validation->errors(), 400);
+                return failed('Failed', $validation->errors(), 400);
             }
 
             $user = Auth::user();
             $otp = $this->get_details($user->id);
 
-            if(!$otp) {
+            if (! $otp) {
                 return failed('Expired Otp');
             }
 
-            if($otp !== $request->otp) {
-                return  failed('Otp does not match');
+            if ($otp !== $request->otp) {
+                return failed('Otp does not match');
             }
             $user->bvn_verified = true;
             $user->save();
+
             return success('Success, Bvn Verified Successfully');
-        }catch (\Exception $exception){
+        } catch (\Exception $exception) {
             return exceptionResponse($exception);
         }
     }
-
 }
